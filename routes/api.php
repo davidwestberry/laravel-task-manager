@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Task;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::get('/tasks', function() {
+    return Task::orderBy('due_date', 'desc')->get();
+});
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
