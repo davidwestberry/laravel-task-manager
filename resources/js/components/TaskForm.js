@@ -16,7 +16,7 @@ class TaskForm extends Component {
             name: "",
             completed_date: "",
             description: "",
-            due_date: new Date(),
+            due_date: format(new Date(), "yyyy-MM-dd"),
             completed: false
         };
 
