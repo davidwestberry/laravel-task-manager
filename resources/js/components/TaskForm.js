@@ -29,6 +29,7 @@ class TaskForm extends Component {
         event.preventDefault();
 
         const task = {
+            id: this.state.id,
             name: this.state.name,
             description: this.state.description,
             due_date: this.state.due_date,

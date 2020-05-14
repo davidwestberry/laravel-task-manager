@@ -42,13 +42,12 @@ Route::delete('/tasks/{id}', function($id) {
 });
 
 Route::post('/task', function (Request $request) {
-    $task = new Task;
+    $task = Task::firstOrNew(['id' => $request->id, 'name' => $request->name]);
     $task->name = $request->name;
     $task->description = $request->description;
     $task->completed_date = null;
     $task->due_date = $request->due_date;
     $task->completed = $request->completed;
-
     $task->save();
 
     return $task->toJson();

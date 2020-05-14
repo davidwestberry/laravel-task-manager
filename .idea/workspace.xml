@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1ef357b6-d83f-42fa-8dac-58568e5a9fa8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/resources/js/components/TaskForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/TaskForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,11 +25,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="38" column="25" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
+            <state relative-caret-position="493">
+              <caret line="44" column="76" lean-forward="true" selection-start-line="44" selection-start-column="52" selection-end-line="44" selection-end-column="76" />
               <folding>
                 <element signature="e#7#20#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/storage/logs/laravel-2020-05-14.log">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-9725">
+              <caret line="332" column="87" selection-start-line="332" selection-start-column="87" selection-end-line="332" selection-end-column="87" />
             </state>
           </provider>
         </entry>
@@ -41,7 +51,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/js/components/TasksView.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
+            <state>
               <caret line="102" column="53" selection-start-line="102" selection-start-column="53" selection-end-line="102" selection-end-column="53" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
@@ -65,8 +75,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/js/components/TaskForm.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+            <state relative-caret-position="459">
+              <caret line="34" column="42" lean-forward="true" selection-start-line="34" selection-start-column="42" selection-end-line="34" selection-end-column="42" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -149,11 +159,11 @@
         <option value="$PROJECT_DIR$/tests/Feature/ExampleTest.php" />
         <option value="$PROJECT_DIR$/tests/Feature/TaskTesk.php" />
         <option value="$PROJECT_DIR$/tests/Feature/TaskTest.php" />
-        <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/resources/js/components/NewTask.js" />
         <option value="$PROJECT_DIR$/resources/js/components/TaskListItem.js" />
         <option value="$PROJECT_DIR$/resources/js/components/TaskList.js" />
         <option value="$PROJECT_DIR$/resources/js/components/TasksView.js" />
+        <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/resources/js/components/TaskForm.js" />
       </list>
     </option>
@@ -464,24 +474,24 @@
       <workItem from="1589385833242" duration="3376000" />
       <workItem from="1589397720054" duration="1626000" />
       <workItem from="1589405327637" duration="18372000" />
-      <workItem from="1589468479633" duration="21094000" />
+      <workItem from="1589468479633" duration="22223000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45186000" />
+    <option name="totallyTimeSpent" value="46315000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2552" y="-8" width="2576" height="1456" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14427663" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14427663" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.27" />
+      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.27" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -644,13 +654,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/storage/logs/laravel-2020-05-14.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="503">
-          <caret line="332" column="87" selection-start-line="332" selection-start-column="87" selection-end-line="332" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/TableHeader.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -753,16 +756,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="25" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
-          <folding>
-            <element signature="e#7#20#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/TaskListItem.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -771,16 +764,6 @@
             <element signature="e#72#122#0" expanded="true" />
             <element signature="e#366#413#0" expanded="true" />
             <element signature="e#469#508#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/TasksView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="102" column="53" selection-start-line="102" selection-start-column="53" selection-end-line="102" selection-end-column="53" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -795,10 +778,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/storage/logs/laravel-2020-05-14.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9725">
+          <caret line="332" column="87" selection-start-line="332" selection-start-column="87" selection-end-line="332" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="44" column="76" lean-forward="true" selection-start-line="44" selection-start-column="52" selection-end-line="44" selection-end-column="76" />
+          <folding>
+            <element signature="e#7#20#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/TasksView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="102" column="53" selection-start-line="102" selection-start-column="53" selection-end-line="102" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/TaskForm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+        <state relative-caret-position="459">
+          <caret line="34" column="42" lean-forward="true" selection-start-line="34" selection-start-column="42" selection-end-line="34" selection-end-column="42" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
