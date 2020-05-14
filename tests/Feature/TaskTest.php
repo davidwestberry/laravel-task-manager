@@ -44,4 +44,14 @@ class TaskTest extends TestCase
             ->assertStatus(200)
             ->assertJsonCount(1);
     }
+
+    public function testDeleteTask()
+    {
+        $task = factory(Task::class)->create();
+        $this->assertTrue($task->id != null);
+
+        $response = $this->delete('/api/tasks/'.$task->id);
+        $response->assertStatus(200);
+        $this->assertDeleted('tasks', $task->toArray());
+    }
 }

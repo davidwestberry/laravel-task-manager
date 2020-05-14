@@ -21,6 +21,8 @@ class TaskList extends Component {
         this.handleCompleteClick = this.handleCompleteClick.bind(this);
         this.requestSort = this.requestSort.bind(this);
         this.sortList = this.sortList.bind(this);
+        this.handleDeleteClick = this.handleDeleteClick.bind(this);
+        this.handleEditClick = this.handleEditClick.bind(this);
     }
 
     requestSort(column) {
@@ -65,6 +67,16 @@ class TaskList extends Component {
     handleCompleteClick(e) {
         let id = e.currentTarget.dataset.id;
         this.props.completeTask(id);
+    }
+
+    handleDeleteClick(e) {
+        let id = e.currentTarget.dataset.id;
+        this.props.deleteTask(id);
+    }
+
+    handleEditClick(e) {
+        let task = e.currentTarget.dataset.id;
+        this.props.editTask(task);
     }
 
     render() {
@@ -128,7 +140,7 @@ class TaskList extends Component {
                     </TableHead>
                     <TableBody component="tbody">
                         {tasks.map(task => (
-                            <TaskListItem key={task.id} task={task} onCompleteClick={this.handleCompleteClick}/>
+                            <TaskListItem key={task.id} task={task} onEditClick={this.handleEditClick} onDeleteClick={this.handleDeleteClick} onCompleteClick={this.handleCompleteClick}/>
                         ))}
                     </TableBody>
                 </Table>
@@ -147,6 +159,8 @@ TaskList.propTypes = {
         due_date: PropTypes.date
     })),
     completeTask: PropTypes.func,
+    deleteTask: PropTypes.func,
+    editTask: PropTypes.func,
     filter: PropTypes.shape({
         name: PropTypes.string,
         label: PropTypes.string,

@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+function getAllTasksDescending() {
+    return Task::orderBy('due_date', 'desc')->get();
+}
+
 Route::put('/tasks/{id}', function (Request $request, $id) {
     Log::debug("Completing task with id " . $id);
     $task = Task::find($id);
@@ -27,7 +31,14 @@ Route::put('/tasks/{id}', function (Request $request, $id) {
         'completed_date' => $request->completed ? Carbon::now() : null
     ]);
 
-    return Task::orderBy('due_date', 'desc')->get();
+    return getAllTasksDescending();
+});
+
+Route::delete('/tasks/{id}', function($id) {
+    $task = Task::find($id);
+    $task->forceDelete();
+
+    return getAllTasksDescending();
 });
 
 Route::post('/task', function (Request $request) {
@@ -44,7 +55,7 @@ Route::post('/task', function (Request $request) {
 })->name('newtask');
 
 Route::get('/tasks', function () {
-    return Task::orderBy('due_date', 'desc')->get();
+    return getAllTasksDescending();
 });
 
 Route::fallback(function (Request $request) {

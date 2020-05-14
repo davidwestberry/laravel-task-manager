@@ -10,7 +10,7 @@ import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import TableHeader from './TableHeader';
 import TaskList from './TaskList';
-import NewTask from './NewTask';
+import TaskForm from './TaskForm';
 
 class TasksView extends Component {
     constructor(props) {
@@ -18,9 +18,11 @@ class TasksView extends Component {
         this.state = {
             tasks: [],
             showNewTaskModal: false,
+            showEditTaskModal: false,
             showSuccessMessage: false,
             showErrorMessage: false,
             error: "",
+            taskForEditing: null,
             filters: [
                 {
                     name: "all",
@@ -37,10 +39,13 @@ class TasksView extends Component {
 
         this.changeFilter = this.changeFilter.bind(this);
         this.completeTask = this.completeTask.bind(this);
+        this.deleteTask = this.deleteTask.bind(this);
         this.openNewTaskModal = this.openNewTaskModal.bind(this);
         this.closeNewTaskModal = this.closeNewTaskModal.bind(this);
-        this.handleNewTaskError = this.handleNewTaskError.bind(this);
-        this.handleNewTaskSuccess = this.handleNewTaskSuccess.bind(this);
+        this.openEditTaskModal = this.openEditTaskModal.bind(this);
+        this.closeEditTaskModal = this.closeEditTaskModal.bind(this);
+        this.handleTaskSaveError = this.handleTaskSaveError.bind(this);
+        this.handleTaskSaveSuccess = this.handleTaskSaveSuccess.bind(this);
         this.fetchTasks = this.fetchTasks.bind(this);
     }
 
@@ -69,6 +74,19 @@ class TasksView extends Component {
             });
     }
 
+    deleteTask(id) {
+        axios
+            .delete(`/api/tasks/${id}`)
+            .then(response => {
+                this.setState({
+                    tasks: response.data
+                });
+            })
+            .catch(error => {
+                console.error(error);
+            })
+    }
+
     openNewTaskModal() {
         this.setState({
             showNewTaskModal: true
@@ -81,18 +99,35 @@ class TasksView extends Component {
         });
     }
 
-    handleNewTaskError(msg) {
-        this.closeNewTaskModal();
+    openEditTaskModal(id) {
+        let task = this.state.tasks.find(el => el.id == id);
         this.setState({
-            error: msg,
-            showErrorMessage: true
+            showEditTaskModal: true,
+            taskForEditing: task
         })
     }
 
-    handleNewTaskSuccess() {
-        this.closeNewTaskModal();
+    closeEditTaskModal() {
         this.setState({
-            showSuccessMessage: true
+            showEditTaskModal: false,
+            taskForEditing: false
+        })
+    }
+
+    handleTaskSaveError(msg) {
+        this.closeNewTaskModal();
+        this.closeEditTaskModal();
+        this.setState({
+            error: msg,
+            showErrorMessage: true,
+        })
+    }
+
+    handleTaskSaveSuccess() {
+        this.closeNewTaskModal();
+        this.closeEditTaskModal();
+        this.setState({
+            showSuccessMessage: true,
         });
         this.fetchTasks();
     }
@@ -134,7 +169,12 @@ class TasksView extends Component {
                 </Snackbar>
 
                 <TableHeader onNewTaskClick={this.openNewTaskModal} onFilterSelect={this.changeFilter} filters={this.state.filters} />
-                <TaskList completeTask={this.completeTask} tasks={this.state.tasks} filter={selectedFilter} />
+                <TaskList completeTask={this.completeTask}
+                          deleteTask={this.deleteTask}
+                          tasks={this.state.tasks}
+                          filter={selectedFilter}
+                          editTask={this.openEditTaskModal}
+                />
 
                 <Dialog open={this.state.showNewTaskModal} onClose={this.closeNewTaskModal}
                     fullWidth={true} maxWidth="md">
@@ -145,7 +185,20 @@ class TasksView extends Component {
                         </IconButton>
                     </DialogTitle>
                     <DialogContent>
-                        <NewTask onSuccess={this.handleNewTaskSuccess} onError={this.handleNewTaskError} />
+                        <TaskForm onSuccess={this.handleTaskSaveSuccess} onError={this.handleTaskSaveError} />
+                    </DialogContent>
+                </Dialog>
+
+                <Dialog open={this.state.showEditTaskModal} onClose={this.closeEditTaskModal}
+                        fullWidth={true} maxWidth="md">
+                    <DialogTitle>
+                        Edit Task
+                        <IconButton style={{position: "absolute", top: "5px", right: "5px"}} aria-label="close" onClick={this.closeEditTaskModal}>
+                            <CloseIcon/>
+                        </IconButton>
+                    </DialogTitle>
+                    <DialogContent>
+                        <TaskForm onSuccess={this.handleTaskSaveSuccess} onError={this.handleTaskSaveError} task={this.state.taskForEditing} />
                     </DialogContent>
                 </Dialog>
 

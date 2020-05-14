@@ -1,9 +1,19 @@
+// Base imports
 import React from 'react';
-import TableRow from '@material-ui/core/TableRow';
-import TableCell from '@material-ui/core/TableCell';
+
+// Material-UI Core imports
 import Checkbox from '@material-ui/core/Checkbox';
-import DoneIcon from '@material-ui/icons/Done';
+import IconButton from '@material-ui/core/IconButton';
+import TableCell from '@material-ui/core/TableCell';
+import TableRow from '@material-ui/core/TableRow';
 import Typography from '@material-ui/core/Typography';
+
+// Material-UI Icon imports
+import DoneIcon from '@material-ui/icons/Done';
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit'
+
+// Utility imports
 import { lightFormat } from 'date-fns';
 import PropTypes from 'prop-types';
 
@@ -39,6 +49,16 @@ function TaskListItem(props) {
             <TableCell>
                 {lightFormat(new Date(props.task.due_date), "MM/dd/yyyy")}
             </TableCell>
+            <TableCell>
+                <IconButton data-id={props.task.id} onClick={props.onEditClick}>
+                    <EditIcon/>
+                </IconButton>
+            </TableCell>
+            <TableCell>
+                <IconButton data-id={props.task.id} onClick={props.onDeleteClick}>
+                    <DeleteIcon />
+                </IconButton>
+            </TableCell>
         </TableRow>
     );
 }
@@ -52,7 +72,9 @@ TaskListItem.propTypes = {
         id: PropTypes.number,
         due_date: PropTypes.date
     }),
-    onCompleteClick: PropTypes.func
+    onCompleteClick: PropTypes.func,
+    onDeleteClick: PropTypes.func,
+    onEditClick: PropTypes.func
 };
 
 export default TaskListItem;

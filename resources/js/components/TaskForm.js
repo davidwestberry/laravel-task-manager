@@ -8,11 +8,11 @@ import format from 'date-fns/format';
 import SaveIcon from '@material-ui/icons/Save';
 import PropTypes from 'prop-types';
 
-class NewTask extends Component {
+class TaskForm extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
+        this.state = this.props.task || {
             name: "",
             completed_date: "",
             description: "",
@@ -121,9 +121,9 @@ class NewTask extends Component {
     }
 }
 
-NewTask.propTypes = {
+TaskForm.propTypes = {
     onSuccess: PropTypes.func,
     onError: PropTypes.func
 };
 
-export default NewTask;
+export default TaskForm;
