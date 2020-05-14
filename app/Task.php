@@ -21,4 +21,6 @@ class Task extends Model
         'due_date' => 'date:m/d/Y',
         'completed' => 'boolean'
     ];
+
+    protected $fillable = ['name', 'description', 'due_date', 'completed', 'completed_date'];
 }

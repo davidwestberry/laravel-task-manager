@@ -4,9 +4,11 @@ namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
+use App\Task;
 
 class ExampleTest extends TestCase
 {
+
     /**
      * A basic test example.
      *
